@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-// Set up connection to database
+// Creat connection to database
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -22,10 +22,9 @@ connection.connect(error => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files (e.g., HTML, CSS, JS) from the 'public' directory
+// Serve static files in 'public' dir
 app.use(express.static('public'));
 
-// Endpoint to handle the form submission
 app.post('/save', (req, res) => {
   const { firstName, lastName, dob } = req.body;
   
