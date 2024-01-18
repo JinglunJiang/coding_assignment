@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const { isValidFirstName, isValidLastName, isValidDOB } = require('./validation');
 
 const app = express();
 const port = 3000;
@@ -22,11 +23,14 @@ connection.connect(error => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files in 'public' dir
 app.use(express.static('public'));
 
 app.post('/save', (req, res) => {
   const { firstName, lastName, dob } = req.body;
+
+  if (firstName === null || lastName === null || !isValidFirstName(firstName) || !isValidLastName(lastName) || !isValidDOB(dob)) {
+    return res.status(400).send({ message: 'Invalid input data' });
+  }
   
   const query = 'INSERT INTO Users (FirstName, LastName, DOB) VALUES (?, ?, ?)';
   connection.query(query, [firstName, lastName, dob], (error, results) => {
@@ -38,3 +42,5 @@ app.post('/save', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;

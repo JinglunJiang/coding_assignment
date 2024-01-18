@@ -5,12 +5,7 @@ function saveUser() {
   var formData = new FormData(document.getElementById('userForm'));
   var data = {};
   formData.forEach((value, key) => {
-    if (key === 'dob') {
-      var dateParts = value.split('-'); 
-      data[key] = `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`; 
-    } else {
       data[key] = value;
-    }
   });
 
   xhr.open("POST", url, true);
