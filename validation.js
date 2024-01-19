@@ -1,9 +1,9 @@
 function isValidFirstName(firstName) {
-  return /^[A-Za-z]+$/.test(firstName) && firstName.length <= 30;
+  return firstName != null && /^[A-Za-z]+$/.test(firstName) && firstName.length <= 30;
 }
 
 function isValidLastName(lastName) {
-  return /^[A-Za-z]+$/.test(lastName) && lastName.length <= 50;
+  return lastName != null && /^[A-Za-z]+$/.test(lastName) && lastName.length <= 50;
 }
 
 function isValidDOB(dob) {
