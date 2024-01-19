@@ -27,12 +27,14 @@ Before you can run this application, make sure you have the following software i
    `npm install`
 
 3. Change the database configuration and create the table
-
-CREATE TABLE Users ( Id INT NOT NULL AUTO_INCREMENT, FirstName CHAR(30) NOT NULL,
-LastName CHAR(50) NOT NULL,
-DOB VARCHAR(10) NOT NULL,
-TimeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-PRIMARY KEY (Id) );
+```
+CREATE TABLE Users ( Id INT NOT NULL AUTO_INCREMENT, <br />
+FirstName CHAR(30) NOT NULL,<br />
+LastName CHAR(50) NOT NULL,<br />
+DOB VARCHAR(10) NOT NULL,<br />
+TimeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,<br />
+PRIMARY KEY (Id) );<br />
+```
 
 4. Start the application
    `npm start`
