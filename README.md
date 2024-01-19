@@ -8,9 +8,7 @@ This is a simple web application that allows users to enter their first name, la
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+- [Testing](#testing)
 
 ### Prerequisites
 
@@ -22,21 +20,33 @@ Before you can run this application, make sure you have the following software i
 ### Installation
 
 1. Clone the the repository to you local machine:
-   '''
-   git clone git@github.com:JinglunJiang/coding_assignment.git
-   '''
 
-## create the table
+`git clone git@github.com:JinglunJiang/coding_assignment.git`
 
-CREATE TABLE Users (
-Id INT NOT NULL AUTO_INCREMENT,
-FirstName CHAR(30) NOT NULL,
+2. Install required dependencies:
+   `npm install`
+
+3. Change the database configuration and create the table
+
+CREATE TABLE Users ( Id INT NOT NULL AUTO_INCREMENT, FirstName CHAR(30) NOT NULL,
 LastName CHAR(50) NOT NULL,
 DOB VARCHAR(10) NOT NULL,
 TimeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-PRIMARY KEY (Id)
-);
+PRIMARY KEY (Id) );
 
-## jest
+4. Start the application
+   `npm start`
 
-run the test by "npx jest"
+## Usage
+
+1. Open your web browser and go to http://localhost:3000.
+2. Fill out the user input form with your first name, last name, and date of birth.
+3. Click the "Save" button to submit the form.
+4. The application will validate your input, and if it's valid, it will save the data to the database.
+
+## Testing
+
+The tests are used to test the validity of user inputs, basically the functions in the file './validation.js'.
+
+Running the test by running
+`npx jest`
