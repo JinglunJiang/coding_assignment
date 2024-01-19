@@ -21,7 +21,7 @@ Before you can run this application, make sure you have the following software i
 
 1. Clone the the repository to you local machine:
 
-`git clone git@github.com:JinglunJiang/coding_assignment.git`
+`git clone git@github.com:JinglunJiang/user_inputs_form.git`
 
 2. Install required dependencies:
    `npm install`
